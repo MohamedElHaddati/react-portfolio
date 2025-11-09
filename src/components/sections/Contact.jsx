@@ -10,12 +10,27 @@ export const Contact = () => {
         message: "",
     });
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target, import.meta.env.VITE_PUBLIC_KEY).then((result) => {
+        
+        try {
+            await emailjs.send(
+                'service_tnmtdw5',
+                'template_cwhih5j',
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message
+                },
+                '3InYLzrGrFj4HQg9V'
+            );
+            
             alert("Message Sent!");
             setFormData({name: "", email: "", message: ""});
-        }).catch(() => alert("Oops! Something went wrong. Please try again."))
+        } catch (error) {
+            console.error('Error:', error);
+            alert("Oops! Something went wrong. Please try again.");
+        }
     };
 
     return (
