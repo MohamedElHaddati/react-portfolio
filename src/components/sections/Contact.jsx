@@ -10,33 +10,18 @@ export const Contact = () => {
         message: "",
     });
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        
-        try {
-            await emailjs.send(
-                'service_tnmtdw5',
-                'template_cwhih5j',
-                {
-                    from_name: formData.name,
-                    from_email: formData.email,
-                    message: formData.message
-                },
-                '3InYLzrGrFj4HQg9V'
-            );
-            
+        emailjs.sendForm("service_tnmtdw5", "template_cwhih5j", e.target, "3InYLzrGrFj4HQg9V").then((result) => {
             alert("Message Sent!");
             setFormData({name: "", email: "", message: ""});
-        } catch (error) {
-            console.error('Error:', error);
-            alert("Oops! Something went wrong. Please try again.");
-        }
+        }).catch(() => alert("Oops! Something went wrong. Please try again."))
     };
 
     return (
         <section id="contact" className="min-h-screen flex items-center justify-center py-20">
             <RevealOnScroll>
-                <div className="w-full max-w-[600px] md:w-150 mx-auto px-4">
+                <div className="px-4 w-150">
                     <h2 className="text-3xl font-bold mb-8 bg-gradient-to-r from-blue-500 to-cyan-400 bg-clip-text text-transparent text-center">
                         Get In Touch</h2>
                     <form className="space-y-6" onSubmit={handleSubmit}>
