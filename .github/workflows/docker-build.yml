@@ -41,3 +41,7 @@ jobs:
             ghcr.io/${{ steps.repo.outputs.repo }}:${{ github.sha }}
           cache-from: type=registry,ref=ghcr.io/${{ steps.repo.outputs.repo }}:buildcache
           cache-to: type=registry,ref=ghcr.io/${{ steps.repo.outputs.repo }}:buildcache,mode=max
+          build-args: |
+            VITE_EMAILJS_SERVICE_ID=${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+            VITE_EMAILJS_TEMPLATE_ID=${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+            VITE_EMAILJS_PUBLIC_KEY=${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
