@@ -1,6 +1,6 @@
 # Live Demo
 
-[Website](https://www.linkedin.com/in/elhaddati/)
+[Website](https://portfolio.elhaddati.dev/)
 
 # Mohamed EL HADDATI - Portfolio
 
