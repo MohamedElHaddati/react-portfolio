@@ -1,8 +1,8 @@
-version: "3.8"
+version: '3.8'
 
 services:
   react-portfolio:
-    image: ghcr.io/MohamedElHaddati/react-portfolio:latest
+    image: ghcr.io/mohamedelhaddati/react-portfolio:latest
     container_name: react-portfolio
     restart: unless-stopped
     networks:
@@ -13,11 +13,6 @@ services:
       - "traefik.http.routers.react-portfolio.entrypoints=websecure"
       - "traefik.http.routers.react-portfolio.tls.certresolver=letsencrypt"
       - "traefik.http.services.react-portfolio.loadbalancer.server.port=80"
-    volumes:
-      - react-portfolio-data:/usr/share/nginx/html:ro
-
-volumes:
-  react-portfolio-data:
 
 networks:
   traefik-network:
