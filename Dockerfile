@@ -3,13 +3,6 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package*.json ./
-RUN npm ci
-
-# Copy source code and build
-COPY . .
-RUN npm run build
 
 # Accept build arguments
 ARG VITE_EMAILJS_SERVICE_ID
@@ -20,6 +13,15 @@ ARG VITE_EMAILJS_PUBLIC_KEY
 ENV VITE_EMAILJS_SERVICE_ID=$VITE_EMAILJS_SERVICE_ID
 ENV VITE_EMAILJS_TEMPLATE_ID=$VITE_EMAILJS_TEMPLATE_ID
 ENV VITE_EMAILJS_PUBLIC_KEY=$VITE_EMAILJS_PUBLIC_KEY
+
+
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm ci
+
+# Copy source code and build
+COPY . .
+RUN npm run build
 
 
 # Production stage
