@@ -43,7 +43,7 @@ export const Projects = () => {
                             </div>
 
                             <div className="flex justify-between items-center">
-                                <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
+                                <a href="https://github.com/MohamedElHaddati/VotingApp" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
                             </div>
                         </div>
 
@@ -61,7 +61,7 @@ export const Projects = () => {
                             </div>
 
                             <div className="flex justify-between items-center">
-                                <a href="#" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
+                                <a href="https://github.com/MohamedElHaddati/music-library-app" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
                             </div>
                         </div>
 
@@ -79,7 +79,7 @@ export const Projects = () => {
                             </div>
 
                             <div className="flex justify-between items-center">
-                                <a href="https://portfolio.elhaddati.dev" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
+                                <a href="https://dashboard.elhaddati.dev" className="text-blue-400 hover:text-blue-300 transition-colors my-4"> View Project → </a>
                             </div>
                         </div>
                     </div>
